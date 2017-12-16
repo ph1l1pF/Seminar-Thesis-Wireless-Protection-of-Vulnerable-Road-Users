@@ -681,14 +681,14 @@ TODO: PhD thesis title page
 {\large
 \thethesistype\\[2\baselineskip]
 
-vorgelegt von\\[2\baselineskip]
+submitted by\\[2\baselineskip]
 
 \foreach \n [count=\ni] in \theauthor {%
 	\textbf{\n}%
 	\ifnum\ni=\the@ccsauthorcount%
 		\ifnum\the@ccsauthorcount=1%
 			\\[1\baselineskip]%
-			geb. am \thebirthday\\
+			born on \thebirthday\\
 			in \thebirthplace\\[2\baselineskip]%
 		\else%
 			\\[2\baselineskip]%
@@ -698,7 +698,7 @@ vorgelegt von\\[2\baselineskip]
 	\fi%
 }%
 
-angefertigt in der Fachgruppe\\[2\baselineskip]
+created in the Working Group\\[2\baselineskip]
 
 \textbf{Distributed Embedded Systems\\[0.2\baselineskip]
 (CCS Labs)\\[1.2\baselineskip]
@@ -709,7 +709,7 @@ Universität Paderborn\\[0.2\baselineskip]
 
 \begin{tabular}{>{\raggedleft}p{5cm}p{6cm}}
 \ifdef\theadvisors{
-Betreuer:	& %
+Supervisor:	& %
 	\foreach \n [count=\ni] in \theadvisors {%
 		\ifnum\ni=1%
 		\else%
@@ -719,7 +719,7 @@ Betreuer:	& %
 	}%
 \\
 }{}
-Gutachter:	& %
+Reviewers:	& %
 	\foreach \n [count=\ni] in \thereferees {%
 		\ifnum\ni=1%
 		\else%
@@ -729,7 +729,7 @@ Gutachter:	& %
 	}%
 \\
 ~ & ~\\
-Abgabe der Arbeit: & \textbf{\thedate}\\
+Submission date: & \textbf{\thedate}\\
 \end{tabular}
 
 \end{center}
