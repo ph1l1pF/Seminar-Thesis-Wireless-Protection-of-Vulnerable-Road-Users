@@ -38,6 +38,7 @@
 \acrodef{CANhashing}[CAN]{Content Addressable Network}{extra={when referring to the distributed hash table}}
 \acrodef{CANproto}[CAN]{Controller Area Network}{extra={when referring to the bus protocol}}
 \acrodef{VU}{Vulnerable Road User}
+\acrodef{V2PC}{Vehicle to Pedestrian Communication Systems}
 
 \begin{document}
 
@@ -89,33 +90,44 @@ Gleicher Text (sinngemäß, nicht wörtlich) in Deutsch
 
 
 \chapter{Introduction}
-\label{sec:introduction}
+\label{chap:introduction}
+
+\TODO{umstrukturieren, vielleicht doch keine sektionen!}
 
 \section{Motivation}
 \label{sec:motivation}
 
+Within the last century the usage of motorized vehicles has grown rapidly. While this fact brings the great benefit of full mobility, it does not come without its downsides. One of them is the high number of traffic accidents. According to~\cite{v2pcomm} in roughly half of all traffic accidents, \acp{VU} are involved. Hence, there is huge potential to prevent injuries or even deaths of many people. This thesis will give you an overview of the current state of research in this area. While there are many approaches beyond the discipline of Wireless Networking (e.g. Computer Vision for pedestrian recognition), this thesis will focus mainly on how to prevent traffic accidents by using wireless network technology. However, the other areas will also be explained briefly since they often work hand in hand with Wireless Networking.
+
 \section{Structure of the Thesis}
 \label{sec:structure}
 
+The thesis is structured as follows. First, in chapter~\ref{chap:v2p} we will look at so called \acp{V2PC} which use wireless networks in order for pedestrian and vehicles to communicate so that accidents between them can be prevented.
+
+Second, in chapter~\ref{chap:perception} we will look at detecting \acp{VU} by using perception of cars. We will only shortly dive into this topic, because it is not directly connected to Wireless Networking. Nevertheless, it is necessary to know the basics in order to understand chapter~\ref{chap:fusion}.
+
+There, a combination of \acp{V2PC} and perception will be used to improve the protection of \acp{VU}.
+
+Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it suable in the real world.
 
 
 \chapter{V2P Communication Systems}
-\label{sec:v2p}
+\label{chap:v2p}
 
 
 \chapter{Detecting Pedestrians by using Perception}
-\label{sec:perception}
+\label{chap:perception}
 
 \TODO{Hier kommt nur ein kleiner Ausblick hin, da es nicht direkt etwas mit Wireless Networking zu tun hat}
 
 \chapter{Fusion of Perception and V2P Communication}
-\label{sec:fusion}
+\label{chap:fusion}
 
 
 
 
 \chapter{Conclusion}
-\label{sec:conclusion}
+\label{chap:conclusion}
 
 
 \begin{itemize}
