@@ -12,7 +12,7 @@
 
 % Author name. Separate multiple authors with commas.
 \author{Philip Frerk}
-\birthday{31st March 1994}
+\birthday{March 31, 1994}
 \birthplace{Bielefeld}
 
 % Title of your thesis.
@@ -21,7 +21,7 @@
 % Choose one of the following lines. Feel free to change the word "Informatik" to match your degree program.
 %\thesistype{Masterarbeit im Fach Informatik}\thesiscite{Master's Thesis~(Masterarbeit)}
 %\thesistype{Bachelorarbeit im Fach Informatik}\thesiscite{Bachelor Thesis~(Bachelorarbeit)}
-\thesistype{Seminar Thesis in Computer Science Master}\thesiscite{Seminar Thesis~(Seminararbeit)}
+\thesistype{Seminar Thesis in Master's Computer Science}\thesiscite{Seminar Thesis~(Seminararbeit)}
 
 % List of advisors, separated by commas.
 \advisors{Christoph Sommer}
@@ -38,7 +38,7 @@
 \acrodef{CANhashing}[CAN]{Content Addressable Network}{extra={when referring to the distributed hash table}}
 \acrodef{CANproto}[CAN]{Controller Area Network}{extra={when referring to the bus protocol}}
 \acrodef{VU}{Vulnerable Road User}
-\acrodef{V2PC}{Vehicle to Pedestrian Communication Systems}
+\acrodef{V2PC}{Vehicle to Pedestrian Communication System}
 
 \begin{document}
 
@@ -108,11 +108,65 @@ Second, in chapter~\ref{chap:perception} we will look at detecting \acp{VU} by u
 
 There, a combination of \acp{V2PC} and perception will be used to improve the protection of \acp{VU}.
 
-Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it suable in the real world.
+Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it usable in the real world.
 
 
 \chapter{V2P Communication Systems}
 \label{chap:v2p}
+
+\begin{enumerate}
+\item erst das standard zeug 
+\item dann das mit beacon weil es besser ist
+\item am ende noch erwähnen dass es trotzdem noch nicht reicht wegen unpräzisem GPS
+\end{enumerate}
+
+The basic idea behind \acp{V2PC} is that a driving vehicle (most often a car) and a \ac{VU} (most often a pedestrian) exchange messages over a wireless network in order tell each other their positions. By doing that, accidents between them can be prevented because both the car driver and the pedestrian can react to the received messages.
+
+There are several approaches to implements such a system and they will be discovered in this chapter.
+
+\section{With special Device}\label{sec:special device}
+
+First, we will look at such communication systems which use a special device for the \ac{VU} in order to send his messages. In \cite{v2pprotection} and \cite{watchover} such systems have been proposed. 
+
+The device from \cite{v2pprotection} can be seen in the bottom of figure~\ref{fig:device}. In the top of figure~\ref{fig:device} you can see the warning unit that will be installed in the car.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/1_device}
+	\caption{The Warning Unit for Cars and the Warning Device for Pedestrians from \cite{v2pprotection}}%
+	\label{fig:device}%
+\end{figure}
+
+The task of the device for the pedestrian is to periodically send \enquote{Hello}-Messages including the pedestrian's position so that the warning unit in the car can receive those messages and detect a probably dangerous situation. Then the warning unit sets itself into a warning status (which can be seen in figure~\ref{fig:device}).
+
+It is very important that the car driver does not get too many warning messages because otherwise he would loose sensibility for the warning. Therefore, a key issue is to ensure that only warning are created if the distance between car and pedestrian decreases gradually.
+
+Figure~\ref{fig:chart1} shows the ratio of meaningful warnings divided by the number of all warning which is roughly 50\% because in this test scenario only one pedestrian is present. That ratio is not satisfying, but is only because of the low number of pedestrians.
+
+In figure~\ref{fig:chart2} you see the same statistics, but for a scenario with 10 pedestrians. Here the same ratio is almost 100\%.
+
+\TODO{hier fehlt noch warum die ratios so sind}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/2_chart}
+	\caption{Warning statistics in a test scenario with one pedestrian from \cite{v2pprotection}}%
+	\label{fig:chart1}%
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/3_chart}
+	\caption{Warning statistics in a test scenario with 10 pedestrians from \cite{v2pprotection}}%
+	\label{fig:chart2}%
+\end{figure}
+
+\section{Using Smart Phones}
+
+In \cite{v2pcomm}, another approach has been developed which has basically the same general idea as \cite{v2pprotection}, but is more detailed. Moreover, it has the great benefit that no additional device for the \ac{VU} is needed because in this system a smart phone or tablet will be used.
+
+The approach is more detailed, because it formulates precise requirements that an implementation of a \ac{V2PC} should have in order to be able to work in reality. The  requirements are the following: One has to calculate a distance at which the warning messages are to be delivered. In section~\ref{sec:special device} we have already seen that this distance should not be too big, because otherwise too many meaningless warning would be received. But also, the distance must not be too small, because the pedestrian and the car driver must have enough time to react to the messages.
+
 
 
 \chapter{Detecting Pedestrians by using Perception}
@@ -147,8 +201,6 @@ Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized 
 \listoffigures
 \clearpage
 
-\listoftables
-\clearpage
 
 \printbibliography
 
