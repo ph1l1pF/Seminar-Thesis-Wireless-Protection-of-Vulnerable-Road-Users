@@ -38,8 +38,9 @@
 \acrodef{CANhashing}[CAN]{Content Addressable Network}{extra={when referring to the distributed hash table}}
 \acrodef{CANproto}[CAN]{Controller Area Network}{extra={when referring to the bus protocol}}
 \acrodef{VU}{Vulnerable Road User}
-\acrodef{V2PC}{Vehicle to Pedestrian Communication System}
+\acrodef{V2PCS}{Vehicle to Pedestrian Communication System}
 \acrodef{GDA}{Geographical Destination Area}
+\acrodef{POC}{Probability of Collision}
 
 \begin{document}
 
@@ -60,13 +61,13 @@ about 1/2 page:
 	\item Conclusion (What are the implications of the answer?)
 \end{enumerate}
 
-Protecting vulnerable road users is a very important task as in roughly 50 \% of all traffic accidents vulnerable road users are involved. Vulnerable road users are pedestrians or drivers of two-wheeled vehicles.
+Protecting \acp{VU} is a very important task as in roughly 50 \% of all traffic accidents \acp{VU} are involved. \acp{VU} are pedestrians or drivers of two-wheeled vehicles.
 
-A technology is needed that warns both the vulnerable road user and the car driver if an accident between them is likely to happen.  This is not an easy challenge because the warnings have to be sent in time  and also it has to ensured that no people are warned who are not really affected by the approaching car.
+A technology is needed that warns both the \ac{VU} and the car driver if an accident between them is likely to happen.  This is a challenging task, because the warnings have to be sent in time  and also it has to ensured that no people are warned who are not really affected by the approaching car.
 
 To achieve that goal, wireless networks, GPS and sensor perception will be used.
 
-Results show that the number of accidents with vulnerable road users involved can be reduced dramatically.
+Results show that the number of accidents with \acp{VU} involved can be reduced dramatically.
 
 Therefore, much more work will be put into this topic, because it is already shown that the technologies can potentially prevent many traffic accidents.
 
@@ -77,7 +78,15 @@ Therefore, much more work will be put into this topic, because it is already sho
 \addcontentsline{toc}{chapter}{Kurzfassung}
 \begin{otherlanguage*}{ngerman}
 
-Gleicher Text (sinngemäß, nicht wörtlich) in Deutsch
+Der Schutz gefährdeter Verkehrsteilnehmer ist eine sehr wichtige Aufgabe, denn in etwa 50 \% aller Verkehrsunfälle sind gefährdete Verkehrsteilnehmer involviert. Gefährdete Verkehrsteilnehmer sind Fußgänger oder Fahrer von zweirädrigen Fahrzeugen.
+
+Es wird eine Technologie benötigt, die sowohl den gefährdeten Verkehrsteilnehmer als auch den Autofahrer warnt, wenn ein Unfall zwischen ihnen wahrscheinlich ist.  Das ist keine leichte Herausforderung, denn die Warnungen müssen rechtzeitig verschickt werden und es muss auch sichergestellt werden, dass keine Personen gewarnt werden, die nicht wirklich vom herannahenden Auto betroffen sind.
+
+Um dieses Ziel zu erreichen, werden drahtlose Netzwerke, GPS und Sensorik eingesetzt.
+
+Die Ergebnisse zeigen, dass die Zahl der Unfälle mit gefährdeten Verkehrsteilnehmern drastisch gesenkt werden kann.
+
+Deshalb wird viel mehr Arbeit in dieses Thema gesteckt, denn es zeigt sich bereits, dass die Technologien viele Verkehrsunfälle potenziell verhindern können.
 
 \end{otherlanguage*}
 \acresetall
@@ -103,11 +112,11 @@ Within the last century the usage of motorized vehicles has grown rapidly. While
 \section{Structure of the Thesis}
 \label{sec:structure}
 
-The thesis is structured as follows. First, in chapter~\ref{chap:v2p} we will look at so called \acp{V2PC} which use wireless networks in order for pedestrian and vehicles to communicate so that accidents between them can be prevented.
+The thesis is structured as follows. First, in chapter~\ref{chap:v2p} we will look at so called \acp{V2PCS} which use wireless networks in order for pedestrian and vehicles to communicate so that accidents between them can be prevented.
 
 Second, in chapter~\ref{chap:perception} we will look at detecting \acp{VU} by using perception of cars. We will only shortly dive into this topic, because it is not directly connected to Wireless Networking. Nevertheless, it is necessary to know the basics in order to understand chapter~\ref{chap:fusion}.
 
-There, a combination of \acp{V2PC} and perception will be used to improve the protection of \acp{VU}.
+There, a combination of \acp{V2PCS} and perception will be used to improve the protection of \acp{VU}.
 
 Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it usable in the real world.
 
@@ -115,13 +124,7 @@ Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized 
 \chapter{V2P Communication Systems}
 \label{chap:v2p}
 
-\begin{enumerate}
-\item erst das standard zeug 
-\item dann das mit beacon weil es besser ist
-\item am ende noch erwähnen dass es trotzdem noch nicht reicht wegen unpräzisem GPS
-\end{enumerate}
-
-The basic idea behind \acp{V2PC} is that a driving vehicle (most often a car) and a \ac{VU} (most often a pedestrian) exchange messages over a wireless network in order tell each other their positions. By doing that, accidents between them can be prevented because both the car driver and the pedestrian can react to the received messages.
+The basic idea behind \acp{V2PCS} is that a driving vehicle (most often a car) and a \ac{VU} (most often a pedestrian) exchange messages over a wireless network in order tell each other their positions. By doing that, accidents between them can be prevented because both the car driver and the pedestrian can react to the received messages.
 
 There are several approaches to implements such a system and they will be discovered in this chapter.
 
@@ -164,11 +167,11 @@ In figure~\ref{fig:chart2} you see the same statistics, but for a scenario with 
 
 \TODO{grafiken noch genauer erklären, vor allem mit der distanz}
 
-\section{Using Smart Phones}
+\section{Using Smart Phones}\label{sec:smartphone}
 
 In \cite{v2pcomm}, another approach has been developed which is based on the same idea as \cite{v2pprotection}, but it is more detailed. Moreover, it has the great benefit that no additional device for the \ac{VU} is needed because in this system a smart phone or tablet will be used as the warning device for the pedestrians.
 
-The approach is more detailed, because it formulates precise requirements that an implementation of a \ac{V2PC} should have in order to be able to work in reality. The  requirements basically boil down to the following: One has to calculate the distance at which the warning messages are to be delivered. In section~\ref{sec:special device} we have already seen that this distance should not be too big, because otherwise too many meaningless warning would be received. But accordingly, the distance must not be too small, because the pedestrian and the car driver must have enough time to react to the messages.
+The approach is more detailed, because it formulates precise requirements that an implementation of a \ac{V2PCS} should have in order to be able to work in reality. The  requirements basically boil down to the following: One has to calculate the distance at which the warning messages are to be delivered. In section~\ref{sec:special device} we have already seen that this distance should not be too big, because otherwise too many meaningless warning would be received. But accordingly, the distance must not be too small, because the pedestrian and the car driver must have enough time to react to the messages.
 
 To calculate this distance, the authors of \cite{v2pcomm} have taken into consideration many parameters, e.g. the velocity of the car, the reaction time of the pedestrian, the expected positioning error of GPS (which is approximately 10m), the expected packet transmission time of Wi-Fi and so on. As an example, we take a look at equation~\ref{equi:minDistance} where the lower bound $d_{min}$ of the distance is written down.
 \begin{align}
@@ -178,7 +181,7 @@ Here $v$ is the car's velocity. Moreover, $t_p$ is the time for perception of th
 
 For simplification, we will not look in every detail of this calculation as it is very detailed. But in principle it is crucial to computer a lower and upper bound for the distance at which the warning messages should be sent. Because you can then check whether your system always fulfills these bounds which the system from \cite{v2pcomm} does.
 
-Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively.
+Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively. \cite{v2pcomm}
 \\\\
 Another important concept in this context of when to send warning messages is the so called \ac{GDA}. You can understand the concept by considering figure~\ref{fig:gda}. In (a) a car is approaching to pedestrians, P1 and P2. As the car is yet far away from P1 and P2 it is possible that both P1 and P2 could be involved in an accidents with the car, therefore both of them are in the \ac{GDA}.
 
@@ -191,16 +194,25 @@ In (b) the car has already come nearer to P1 and P2 and is currently turning lef
 	\label{fig:gda}%
 \end{figure}
 
-The \ac{GDA} of a car will be computed periodically and this makes sure that even less meaningless warning messages will be sent. The \ac{GDA} can be computed by taking several parameters (e.g. the car's yaw rate) into account.
+The \ac{GDA} of a car will be computed periodically and this makes sure that even less meaningless warning messages will be sent. The \ac{GDA} can be computed by taking several parameters of the car (e.g. the yaw rate) into account.
 
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.9\textwidth]{figures/4_errors}
-%	\caption{Error probability of GPS, from \cite{v2pcomm}}%
-%	\label{fig:gpsError}%
-%\end{figure}
+\TODO{jetzt erwähnen dass wlan auch lange dauert und so auf nächste sektion hinleiten}
 
-\section{Beacon}\label{sec:beacon}
+\section{Faster WiFi Message Exchange by using Beacon Stuffing}\label{sec:beacon}
+
+The principle from chapter~\ref{sec:smartphone} has one disadvantage that has not yet been emphasized.
+Typically, when two devices want to communicate with each other over WiFi, they have to establish a WiFi connection first. This process takes time \TODO{WIE VIEL ZEIT??}. But there is an approach from the authors of \cite{beacon} to avoid that connection establishing phase by using WiFi Beacon Stuffing. Beacons are usually used in order to propagate the existence of a WiFi network. They are broadcasted periodically by the WiFi access point and contain information about the network (e.g. the SSID).
+
+In \cite{beacon} the SSID field is replaced by a so called WiFi Honk Information Packet, which includes information about the moving car, namely the latitude, longitude, speed, and direction. \acp{VU} or other cars then receive this information and compute the likelihood of an accident.
+
+Figure~\ref{fig:beacon} shows the results of \cite{beacon} compared to WiFi without Beacon Stuffing. Sub figure (a) shows that pedestrians have a little more time to react, but obviously if the velocity of the car comes close to 100 mph there is almost no time to react. Sub figure (b) shows the probability of collision on which Beacon Stuffing has a decisive impact. Whereas the plot normal WiFi has an exponential growth, the growth of the plot for WiFi Honk (Beacon Stuffing) is only linear. Therefore, warning messages can be sent more aggressively. \TODO{WARUM???}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/6_beacon}
+	\caption{Evaluation of Beacon Stuffing, from \cite{beacon}. \\POC stands for \enquote{Probability of Collision}, TAS stands for \enquote{Time available to stop}.}%
+	\label{fig:beacon}%
+\end{figure}
 
 \chapter{Detecting Pedestrians by using Perception}
 \label{chap:perception}
