@@ -43,6 +43,7 @@
 \acrodef{POC}{Probability of Collision}
 \acrodef{LOS}{Line-of-sight}
 \acrodef{NLOS}{Non-line-of-sight}
+\acrodef{ITS}{Intelligent Transportation System}
 
 \begin{document}
 
@@ -54,24 +55,12 @@
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{otherlanguage*}{american}
 
-about 1/2 page:
-\begin{enumerate}
-	\item Motivation (Why do we care?)
-	\item Problem statement (What problem are we trying to solve?)
-	\item Approach (How did we go about it)
-	\item Results (What's the answer?)
-	\item Conclusion (What are the implications of the answer?)
-\end{enumerate}
-
 Protecting \acp{VRU} is a very important task as in roughly 50 \% of all traffic accidents \acp{VRU} are involved. \acp{VRU} are pedestrians or drivers of two-wheeled vehicles.
-
 A technology is needed that warns both the \ac{VRU} and the car driver if an accident between them is likely to happen.  This is a challenging task, because the warnings have to be sent in time  and also it has to ensured that no people are warned who are not really affected by the approaching car.
-
-To achieve that goal, wireless networks, GPS and sensor perception will be used.
-
+To achieve that goal, Wireless Networking, GPS and Sensor Perception will be used.
 Results show that the number of accidents with \acp{VRU} involved can be reduced dramatically.
+As the initial results are promising, research in this area is being expanded, especially as there are many further challenges, for example situations with many \acp{VRU} and so on.
 
-Therefore, much more work will be put into this topic, because it is already shown that the technologies can potentially prevent many traffic accidents.
 
 \end{otherlanguage*}
 
@@ -80,22 +69,13 @@ Therefore, much more work will be put into this topic, because it is already sho
 \addcontentsline{toc}{chapter}{Kurzfassung}
 \begin{otherlanguage*}{ngerman}
 
-Der Schutz gefährdeter Verkehrsteilnehmer ist eine sehr wichtige Aufgabe, denn in etwa 50 \% aller Verkehrsunfälle sind gefährdete Verkehrsteilnehmer involviert. Gefährdete Verkehrsteilnehmer sind Fußgänger oder Fahrer von zweirädrigen Fahrzeugen.
 
-Es wird eine Technologie benötigt, die sowohl den gefährdeten Verkehrsteilnehmer als auch den Autofahrer warnt, wenn ein Unfall zwischen ihnen wahrscheinlich ist.  Das ist keine leichte Herausforderung, denn die Warnungen müssen rechtzeitig verschickt werden und es muss auch sichergestellt werden, dass keine Personen gewarnt werden, die nicht wirklich vom herannahenden Auto betroffen sind.
-
-Um dieses Ziel zu erreichen, werden drahtlose Netzwerke, GPS und Sensorik eingesetzt.
-
-Die Ergebnisse zeigen, dass die Zahl der Unfälle mit gefährdeten Verkehrsteilnehmern drastisch gesenkt werden kann.
-
-Deshalb wird viel mehr Arbeit in dieses Thema gesteckt, denn es zeigt sich bereits, dass die Technologien viele Verkehrsunfälle potenziell verhindern können.
 
 \end{otherlanguage*}
 \acresetall
 
 \cleardoublepage
 \tableofcontents
-\TODO{The table of contents should fit on one page. When in doubt, adjust the \texttt{tocdepth} counter.}
 
 \cleardoublepage
 \pagenumbering{arabic}
@@ -109,7 +89,7 @@ Deshalb wird viel mehr Arbeit in dieses Thema gesteckt, denn es zeigt sich berei
 \section{Motivation}
 \label{sec:motivation}
 
-Within the last century the usage of motorized vehicles has grown rapidly. While this fact brings the great benefit of full mobility, it does not come without its downsides. One of them is the high number of traffic accidents. According to~\cite{v2pcomm} in roughly half of all traffic accidents, \acp{VRU} are involved. Hence, there is huge potential to prevent injuries or even deaths of many people. This thesis will give you an overview of the current state of research in this area. While there are many approaches beyond the discipline of Wireless Networking (e.g. Computer Vision for pedestrian recognition), this thesis will focus mainly on how to prevent traffic accidents by using wireless network technology. However, the other areas will also be explained briefly since they often work hand in hand with Wireless Networking.
+Within the last century the usage of motorized vehicles has grown rapidly. While this fact brings the great benefit of full mobility, it does not come without its downsides. One of them is the high number of traffic accidents. According to~\cite{v2pcomm} in roughly half of all traffic accidents, \acp{VRU} are involved. Hence, there is huge potential to prevent injuries or even deaths of many people. This thesis will give you an overview of the current state of research in this area. While there are many approaches beyond the discipline of Wireless Networking (e.g. Computer Vision for pedestrian recognition), this thesis will focus mainly on how to prevent traffic accidents by using Wireless Networking Technology. However, the other areas will also be explained briefly since they often work hand in hand with Wireless Networking.
 
 \section{Structure of the Thesis}
 \label{sec:structure}
@@ -123,7 +103,7 @@ There, a combination of \acp{V2PCS} and perception will be used to improve the p
 Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it usable in the real world.
 
 
-\chapter{V2P Communication Systems}
+\chapter{Protecting Vulnerable Road Users}
 \label{chap:v2p}
 
 The basic idea behind \acp{V2PCS} is that a driving vehicle (most often a car) and a \ac{VRU} (most often a pedestrian) exchange messages over a wireless network in order tell each other their positions. By doing that, accidents between them can be prevented because both the car driver and the pedestrian can react to the received messages.
@@ -218,7 +198,7 @@ The Beacon Stuffing approach is a useful technique which can be added to \acp{V2
 	\label{fig:beacon}%
 \end{figure}
 
-\chapter{Fusion of Perception and V2P Communication}\label{chap:fusion}
+\section{Fusion of Perception and V2P Communication}\label{chap:fusion}
 
 Apart from the discipline of Wireless Networking there is another approach for detecting \acp{VRU}. Nowadays, cars are equipped with laser sensors which are intended to detect \acp{VRU}. In \cite{2010perception} the authors explain how this method works.
 
@@ -246,7 +226,15 @@ In contrast, in sub figure~\ref{fig:fusion} (b) the pedestrian is not visible. S
 \\\\
 The results from \cite{2016fusion} show that the combined system benefits from the advantages from both the \ac{V2PCS} and the Perception System. In \ac{LOS} conditions, the system can locate the pedestrian more precisely because of the very precise data from the Perception System. As the distance between the car and the pedestrian increases, the Perception becomes useless, and only the data from the \ac{V2PCS} can be used. The same holds for \ac{NLOS} conditions. Moreover, the combined has yet not been tested for situations with many communicating cars and pedestrians which will strain the system more. Nevertheless, the fusion approach is a very useful and promising technique for \ac{VRU} protection.
 
-\TODO{watchover passt in bib nicht}
+\section{Wireless Protection of Motorbikes}\label{sec:motorbikes}
+
+We will now look into a different topic, which is protecting drivers of motorbikes by using Wireless Networking. Yet we have focused mainly on pedestrians as \acp{VRU}, but motorbike drivers are \acp{VRU} as well, and due to the high popularity of motorbikes this area is also very important. 
+
+There are already approaches for a so called \ac{ITS}, which means that vehicles (in that case cars) communicate to each other over WiFi, to tell their position speed etc. in order to prevent accidents between them. \TODO{hier evtl referenz} But there are not many approaches for such systems considering motorbikes as special vehicles. In~\cite{bikes} such an idea is being developed. 
+
+One of the special requirements for motorbikes is that the communication system has to consume less energy than in cars. Therefore, the hardware from~\cite{bikes} is battery-powered. Also the human interface on a motorbike cannot be as rich as in car. Therefore, LEDs and a buzzer can be used.
+
+The system works as follows. It receives the several messages from other vehicles including information like speed, direction etc. It then maintains a database of vehicles nearby and computes which other cars can possibly be involved in an accidents with the own motorbike by taking into account the own speed, direction etc. (analogously to a \ac{V2PCS} as we have seen before). Of course the systems also broadcasts its data to other vehicles over WiFi in order to inform them.
 
 \chapter{Conclusion}
 \label{chap:conclusion}
@@ -272,5 +260,4 @@ The results from \cite{2016fusion} show that the combined system benefits from t
 
 
 \printbibliography
-
 \end{document}
