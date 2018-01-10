@@ -703,7 +703,7 @@ created in the Working Group\\[2\baselineskip]
 \textbf{Distributed Embedded Systems\\[0.2\baselineskip]
 (CCS Labs)\\[1.2\baselineskip]
 Heinz Nixdorf Institut\\[0.2\baselineskip]
-Universität Paderborn\\[0.2\baselineskip]
+University of Paderborn\\[0.2\baselineskip]
 }
 }~\\[1\baselineskip]
 
