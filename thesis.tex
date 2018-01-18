@@ -38,6 +38,7 @@
 \acrodef{CANhashing}[CAN]{Content Addressable Network}{extra={when referring to the distributed hash table}}
 \acrodef{CANproto}[CAN]{Controller Area Network}{extra={when referring to the bus protocol}}
 \acrodef{VRU}{Vulnerable Road User}
+\acrodef{GVT}{gefährdeter Verkehrsteilnehmer}
 \acrodef{V2PCS}{Vehicle to Pedestrian Communication System}
 \acrodef{GDA}{Geographical Destination Area}
 \acrodef{POC}{Probability of Collision}
@@ -56,10 +57,10 @@
 \begin{otherlanguage*}{american}
 
 Protecting \acp{VRU} is a very important task as in roughly 50 \% of all traffic accidents \acp{VRU} are involved. \acp{VRU} are pedestrians or drivers of two-wheeled vehicles.
-A technology is needed that warns both the \ac{VRU} and the car driver if an accident between them is likely to happen.  This is a challenging task, because the warnings have to be sent in time  and also it has to ensured that no people are warned who are not really affected by the approaching car.
+A technology is needed that warns both the \ac{VRU} and the car driver if an accident between them is likely to happen so that they can react accordingly.  This is a challenging task, because the warnings have to be sent in time  and also it has to ensured that no people are warned who are not really affected by the approaching car.
 To achieve that goal, Wireless Networking, GPS and Sensor Perception will be used.
 Results show that the number of accidents with \acp{VRU} involved can be reduced dramatically.
-As the initial results are promising, research in this area is being expanded, especially as there are many further challenges, for example situations with many \acp{VRU} and so on.
+As the initial results are promising, research in this area is being expanded, especially as there are many further challenges, for example situations with many \acp{VRU} and many cars in dense cities.
 
 
 \end{otherlanguage*}
@@ -69,6 +70,7 @@ As the initial results are promising, research in this area is being expanded, e
 \addcontentsline{toc}{chapter}{Kurzfassung}
 \begin{otherlanguage*}{ngerman}
 
+Der Schutz von gefährdeten Verkehrsteilnehmern ist eine sehr wichtige Aufgabe, da an rund der Hälfte aller Verkehrsunfälle solche Verkehrsteilnehmer beteiligt sind. Gefährdete Verkehrsteilnehmer sind definiert als Fußgänger oder Fahrer von zweirädigen Fahrzeugen. Es wird eine Technologie benötigt, welche sowohl den gefährdeten Verkehrsteilnehmer als auch den Fahrer eines Autos warnt, wenn es wahrscheinlich ist, dass ein Unfall zwischen ihnen passiert. Das ist eine schwierige Herausforderung, da die Nachrichten schnell genug ausgetauscht werden müssen und auch dafür gesorgt werden muss, dass keine Fußgänger gewarnt werden, die eigentlich nicht in den Unfall verwickelt werden können. Um dies zu ermöglichen, werden Drahtlos-Netzwerke, GPS-Technologie und Computer Vision eingesetzt. Die Ergebnisse zeigen, dass dadurch die Anzahl der Verkehrsunfälle deutlich gesenkt werden kann. Wegen dieser vielversprechenden Resultate wird zukünftig noch mehr Forschungsarbeit in dieses Thema gesteckt werden. Dies ist auch nötig, da die Systeme noch nicht fähig sind, in Situationen mit sehr vielen Fußgängern (bzw. gefährdeten Verkehrsteilnehmern) umzugehen, was aber in dicht besiedelten Städten oft der Fall ist.
 
 
 \end{otherlanguage*}
@@ -203,6 +205,7 @@ The Beacon Stuffing approach is a useful technique which can be added to \acp{V2
 Apart from the discipline of Wireless Networking there is another approach for detecting \acp{VRU}. Nowadays, cars are equipped with laser sensors which are intended to detect \acp{VRU}. In \cite{2010perception} the authors explain how this method works.
 
 \TODO{pass nicht, unterscheiden zwischen sensoren und kameras!!!}
+\TODO{hier noch \cite{survey} einbringen!!}
 You can think of the sensors as cameras which point to the area in front of the car. When the picture is taken, Machine Learning is used to detect pedestrians in it. This is not trivial, because pedestrians have significant differences regarding their appearance, because they have different height. Furthermore, they can carry several objects and the weather condition can also change the picture. But the biggest problem of sensors is that pedestrians are often occluded by obstacles. When they are partially hidden the Machine Learning Algorithms have problems to classify them as pedestrians and when they are hidden completely it is impossible for sensors to recognize them.
 
 One can indicate that it is not satisfying to only use sensor perception for protecting \acp{VRU}. But sensor perception has also some advantages in comparison to \acp{V2PCS}. More precisely, the features of sensor perception and \acp{V2PCS} are complementary.
@@ -234,7 +237,13 @@ There are already approaches for a so called \ac{ITS}, which means that vehicles
 
 One of the special requirements for motorbikes is that the communication system has to consume less energy than in cars. Therefore, the hardware from~\cite{bikes} is battery-powered. Also the human interface on a motorbike cannot be as rich as in car. Therefore, LEDs and a buzzer can be used.
 
-The system works as follows. It receives the several messages from other vehicles including information like speed, direction etc. It then maintains a database of vehicles nearby and computes which other cars can possibly be involved in an accidents with the own motorbike by taking into account the own speed, direction etc. (analogously to a \ac{V2PCS} as we have seen before). Of course the systems also broadcasts its data to other vehicles over WiFi in order to inform them.
+The system works as follows. It receives the several messages from other vehicles including information like speed, direction etc. It then maintains a database of vehicles nearby and computes which other cars can possibly be involved in an accidents with the own motorbike by taking into account the own speed, direction etc. (analogously to a \ac{V2PCS} as we have seen before). If it detects a dangerous situation the driver will be warned by the blinking LEDs and the buzzer.
+
+Of course, the systems also broadcasts its data to other vehicles over WiFi in order to inform them.
+
+Apart from that, the system is also capable of running in cars, and in that case informs the driver about nearby motorbikes. In contrast, when running in a motorbike, the system focuses on warning the driver about nearby cars as they are a bigger threat for the motorbike driver.
+
+A future task will be to make the system runnable in 4G networks as well in order to improve the performance.
 
 \chapter{Conclusion}
 \label{chap:conclusion}
@@ -257,7 +266,7 @@ The system works as follows. It receives the several messages from other vehicle
 \listoffigures
 \clearpage
 
-
-
 \printbibliography
+
+
 \end{document}
