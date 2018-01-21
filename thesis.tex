@@ -21,7 +21,7 @@
 % Choose one of the following lines. Feel free to change the word "Informatik" to match your degree program.
 %\thesistype{Masterarbeit im Fach Informatik}\thesiscite{Master's Thesis~(Masterarbeit)}
 %\thesistype{Bachelorarbeit im Fach Informatik}\thesiscite{Bachelor Thesis~(Bachelorarbeit)}
-\thesistype{Seminar Thesis in Master's Computer Science}\thesiscite{Seminar Thesis~(Seminararbeit)}
+\thesistype{Seminar Thesis in Computer Science Master's}\thesiscite{Seminar Thesis~(Seminararbeit)}
 
 % List of advisors, separated by commas.
 \advisors{Christoph Sommer}
@@ -51,6 +51,8 @@
 \pagenumbering{roman}
 
 \maketitle
+
+\TODO{Datum auf englisch machen}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -83,10 +85,11 @@ Der Schutz von gefährdeten Verkehrsteilnehmern ist eine sehr wichtige Aufgabe, 
 \pagenumbering{arabic}
 
 
+
 \chapter{Introduction}
 \label{chap:introduction}
 
-\TODO{umstrukturieren, vielleicht doch keine sektionen!}
+The thesis starts by giving a short motivation for the topic, and then providing an overview about how the work is structured.
 
 \section{Motivation}
 \label{sec:motivation}
@@ -95,6 +98,8 @@ Within the last century the usage of motorized vehicles has grown rapidly. While
 
 \section{Structure of the Thesis}
 \label{sec:structure}
+
+\TODO{anpassen}
 
 The thesis is structured as follows. First, in chapter~\ref{chap:v2p} we will look at so called \acp{V2PCS} which use wireless networks in order for pedestrian and vehicles to communicate so that accidents between them can be prevented.
 
@@ -112,7 +117,7 @@ The basic idea behind \acp{V2PCS} is that a driving vehicle (most often a car) a
 
 There are several approaches to implements such a system and they will be discovered in this chapter.
 
-\section{With special Device}\label{sec:special device}
+\section{Special Device as Warning Unit}\label{sec:special device}
 
 First, we will look at such communication systems which use a special device for the \ac{VRU} in order to send his messages. In \cite{v2pprotection} and \cite{watchover} such systems have been proposed. 
 
@@ -151,7 +156,7 @@ In figure~\ref{fig:chart2} you see the same statistics, but for a scenario with 
 
 \TODO{grafiken noch genauer erklären, vor allem mit der distanz}
 
-\section{Using Smart Phones}\label{sec:smartphone}
+\section{Smart Phones as Warning Devices}\label{sec:smartphone}
 
 In \cite{v2pcomm}, another approach has been developed which is based on the same idea as \cite{v2pprotection}, but it is more detailed. Moreover, it has the great benefit that no additional device for the \ac{VRU} is needed because in this system a smart phone or tablet will be used as the warning device for the pedestrians.
 
@@ -206,7 +211,7 @@ Apart from the discipline of Wireless Networking there is another approach for d
 
 \TODO{pass nicht, unterscheiden zwischen sensoren und kameras!!!}
 \TODO{hier noch \cite{survey} einbringen!!}
-You can think of the sensors as cameras which point to the area in front of the car. When the picture is taken, Machine Learning is used to detect pedestrians in it. This is not trivial, because pedestrians have significant differences regarding their appearance, because they have different height. Furthermore, they can carry several objects and the weather condition can also change the picture. But the biggest problem of sensors is that pedestrians are often occluded by obstacles. When they are partially hidden the Machine Learning Algorithms have problems to classify them as pedestrians and when they are hidden completely it is impossible for sensors to recognize them.
+You can think of the sensors as cameras which point to the area in front of the car. When the picture is taken, Machine Learning is used to detect pedestrians in it. This is not trivial, because pedestrians have significant differences regarding their appearance, because they have different height. Furthermore, they can carry several objects and the weather condition can also change the picture. But the biggest problem of sensors is that pedestrians are often occluded by obstacles. When they are partially hidden the Machine Learning Algorithms have problems to classify them as pedestrians and when they are hidden completely it is impossible for sensors to recognize them \cite{2010perception}.
 
 One can indicate that it is not satisfying to only use sensor perception for protecting \acp{VRU}. But sensor perception has also some advantages in comparison to \acp{V2PCS}. More precisely, the features of sensor perception and \acp{V2PCS} are complementary.
 
@@ -233,7 +238,9 @@ The results from \cite{2016fusion} show that the combined system benefits from t
 
 We will now look into a different topic, which is protecting drivers of motorbikes by using Wireless Networking. Yet we have focused mainly on pedestrians as \acp{VRU}, but motorbike drivers are \acp{VRU} as well, and due to the high popularity of motorbikes this area is also very important. 
 
-There are already approaches for a so called \ac{ITS}, which means that vehicles (in that case cars) communicate to each other over WiFi, to tell their position speed etc. in order to prevent accidents between them. \TODO{hier evtl referenz} But there are not many approaches for such systems considering motorbikes as special vehicles. In~\cite{bikes} such an idea is being developed. 
+There are already approaches for so called \acp{ITS}, for example in~\cite{its}. There, Wireless Sensor Networks are used in order to exchange information between cars.  Those systems are also designed to enhance efficiency on the road, but of course also in order to provide more safety. Therefore, the cars will exchange messages including the typical parameters like speed, direction etc.
+
+But those \acp{ITS} typically do not focus particularly on motorbikes, as the requirements for motorbikes are partly different to the ones for cars. In~\cite{bikes} such an integration of motorbikes into existing \acp{ITS} has been proposed.
 
 One of the special requirements for motorbikes is that the communication system has to consume less energy than in cars. Therefore, the hardware from~\cite{bikes} is battery-powered. Also the human interface on a motorbike cannot be as rich as in car. Therefore, LEDs and a buzzer can be used.
 
@@ -249,24 +256,16 @@ A future task will be to make the system runnable in 4G networks as well in orde
 \label{chap:conclusion}
 
 
-\begin{itemize}
-\item summarize again what your paper did, but now emphasize more the results, and comparisons
-\item write conclusions that can be drawn from the results found and the discussion presented in the paper
-\item future work (be very brief, explain what, but not much how, do not speculate about results or impact)
-\item recommended length: one page.
-\end{itemize}
+This thesis gave an overview of the current state of research in the area of protecting \acp{VRU} by mainly using Wireless Networking. That topic is of high interest because many accidents happen between vehicles and \acp{VRU}, so a large number of accidents could be prevented.
 
+This protection basically works by exchanging messages between \acp{VRU} and cars over a wireless channel and then calculating the likeliness of an accident between the two. We have also seen that a \ac{V2PCS} as stand alone are not sufficient, mostly due to the imprecision of GPS. Therefore, sensor perception will be used in addition, as those sensors are generally more precise than GPS. The fusion of those two types of \ac{VRU}-detection can then benefit from the advantages of both WiFi and perception, whereby the disadvantages (imprecision of GPS and low range of perception) can be eliminated.
 
+Apart from that, we have also considered motorbikes as another class of \acp{VRU}. The main goal is to integrate motorbikes in \ac{ITS}-systems that are already under development, but mostly for cars. This is challenging because of the special requirements that motorbikes will yield (e.g. less energy consumption, more compact human interface etc.).
+
+In general, you can state that there two different approaches for future research, either focusing on the fusion of V2P Communication and Perception, or concentrating on a technology more precise than GPS and then only using V2P Communication. \TODO{hier noch kurz sagen ob es so was schon gibt}
 
 \cleardoublepage
-
-%\listofabbreviations
-\clearpage
-
 \listoffigures
 \clearpage
-
 \printbibliography
-
-
 \end{document}
