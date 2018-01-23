@@ -233,6 +233,8 @@
 	\Crefname{algorithm}{Algorithm}{Algorithms}
 }
 
+\newcommand{\mydate}{January 23, 2018}
+
 % Some more language-dependent commands
 \ifthenelse{\boolean{germanthesis}}{
 	\newcommand{\thedate}{\today}
@@ -610,7 +612,7 @@
 			}}%
 			\coverpagetextlarge{\nohyphens{\thetitle}}%
 			\coverpagetextsmall{\thethesistype}%
-			\coverpagetextsmall{\thedate}%
+			\coverpagetextsmall{\mydate}%
 		}%
 	};
 	\draw[xshift=2.5cm,yshift=6cm] node [above right,text width=15cm, text badly ragged] {%
@@ -729,7 +731,7 @@ Reviewers:	& %
 	}%
 \\
 ~ & ~\\
-Submission date: & \textbf{\thedate}\\
+Submission date: & \textbf{\mydate}\\
 \end{tabular}
 
 \end{center}
@@ -776,7 +778,7 @@ I certify that the work has not been submitted in the same or any similar form f
 	\vspace{1cm}\\
 	(\n)\\
 	\ifnum\ni=\the@ccsauthorcount%
-		Paderborn, \thedate
+		Paderborn, \mydate
 	\fi
 }%
 

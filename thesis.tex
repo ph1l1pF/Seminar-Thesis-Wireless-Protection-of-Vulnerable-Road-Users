@@ -52,9 +52,9 @@
 
 \maketitle
 
-\TODO{Datum auf englisch machen}
-
 \TODO{erkläruing unterschreiben}
+
+\TODO{datum anpassen}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -101,7 +101,7 @@ Within the last century the usage of motorized vehicles has grown rapidly. While
 \section{Structure of the Thesis}
 \label{sec:structure}
 
-The thesis is structured as follows. Chapter~\ref{chap:v2p} is the main part of the thesis and will show the different ways for protection of \acp{VRU} by using Wireless Networking. In chapters~\ref{sec:special device}, \ref{sec:smartphone}, \ref{sec:beacon}, we will look at different solution which rely solely on Wireless Networking. We will then see why such systems are often not satisfying, and in chapter \ref{sec:fusion} we will take a look at an approach which combines Wireless Networking and Sensor Perception in order to improve the performance and precision.
+The thesis is structured as follows. Chapter~\ref{chap:v2p} is the main part of the thesis and will show the different ways for protection of \acp{VRU} by using Wireless Networking. In chapters~\ref{sec:special device}, \ref{sec:smartphone}, \ref{sec:beacon}, we will look at different solution which rely solely on Wireless Networking. We will then see why such systems are often not satisfying, and in chapter \ref{sec:fusion} we will take a look at an approach which combines Wireless Networking and Sensor Perception in order to improve the performance and precision. In chapter~\ref{sec:motorbikes}, motorbikes will be discussed as a different class of \acp{VRU}.
 
 Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it usable in the real world.
 
@@ -115,7 +115,7 @@ There are several approaches to implements such a system and they will be discov
 
 \section{Special Device as Warning Unit}\label{sec:special device}
 
-First, we will look at such communication systems which use a special device for the \ac{VRU} in order to send his messages. In \cite{v2pprotection} and \cite{watchover} such systems have been proposed. \TODO{watchover genauer}
+First, we will look at such communication systems which use a special device for the \ac{VRU} in order to send his messages. In \cite{v2pprotection} and \cite{watchover} such systems have been proposed. As~\cite{watchover} is more about the details of the deployed devices (e.g. energy consumption, price, complexity), we will focus on~\cite{v2pprotection} since it is more related to Wireless Networking.
 
 The device from \cite{v2pprotection} can be seen in the bottom of figure~\ref{fig:device}. In the top of figure~\ref{fig:device} you can see the warning unit that will be installed in the car.
 
@@ -159,9 +159,9 @@ To calculate this distance, the authors of \cite{v2pcomm} have taken into consid
 \begin{align}
 d_{min}=v \times (t_p+t_r+t_{tx})+gnss_{err_{car}}+gnss_{err_{ped}}\label{equi:minDistance}
 \end{align}
-Here $v$ is the car's velocity. Moreover, $t_p$ is the time for Perception of the pedestrian, $t_r$ is the reaction time of the pedestrian, and $t_{tx}$ is the packet transmission delay. $gnss_{err_{car}}$ and $gnss_{err_{ped}}$ are the positioning errors of the car and the pedestrian, respectively.
+Here $v$ is the car's velocity. Moreover, $t_p$ is the time for Perception of the pedestrian, $t_r$ is the reaction time of the pedestrian, and $t_{tx}$ is the packet transmission delay. $gnss_{err_{car}}$ and $gnss_{err_{ped}}$ are the positioning errors of the car and the pedestrian, respectively. Of course, when $v$ increases, $d_{min}$ has to increase as well, therefore $v$ is multiplied by the sum of $t_p, t_r$ and $t_{tx}$.
 
-For simplification, we will not look in every detail of this calculation as it is very detailed. But in principle it is crucial to compute a lower and upper bound for the distance at which the warning messages should be sent. Because you can then check whether your system always fulfills these bounds which the system from \cite{v2pcomm} does.
+For simplification, we will not look in every detail of this calculation as it is very sophisticated. But in principle it is crucial to compute a lower and upper bound for the distance at which the warning messages should be sent. Because you can then check whether your system always fulfills these bounds which the system from \cite{v2pcomm} does.
 
 Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively. \cite{v2pcomm}
 \\\\
