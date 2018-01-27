@@ -233,7 +233,7 @@
 	\Crefname{algorithm}{Algorithm}{Algorithms}
 }
 
-\newcommand{\mydate}{January 23, 2018}
+\newcommand{\mydate}{\today}
 
 % Some more language-dependent commands
 \ifthenelse{\boolean{germanthesis}}{

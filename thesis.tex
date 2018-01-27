@@ -54,8 +54,6 @@
 
 \TODO{erkläruing unterschreiben}
 
-\TODO{datum anpassen}
-
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{otherlanguage*}{american}
@@ -165,7 +163,7 @@ For simplification, we will not look in every detail of this calculation as it i
 
 Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively. \cite{v2pcomm}
 \\\\
-Another important concept in this context of when to send warning messages is the so called \ac{GDA}. You can understand the concept by considering figure~\ref{fig:gda}. In (a) a car is approaching to pedestrians, P1 and P2. As the car is yet far away from P1 and P2 it is possible that both P1 and P2 could be involved in an accident with the car, therefore both of them are in the \ac{GDA} (green area).
+Another important concept in this context of when to send warning messages is the so called \ac{GDA}. You can understand the concept by considering figure~\ref{fig:gda}. In (a) a car is approaching two pedestrians, P1 and P2. As the car is yet far away from P1 and P2 it is possible that both P1 and P2 could be involved in an accident with the car, therefore both of them are in the \ac{GDA} (green area).
 
 In (b) the car has already come nearer to P1 and P2 and is currently turning left. Due to that fact, it is no longer possible for the car to approach the position of P2. So, P2 is no longer in the \ac{GDA} of the car and P2 will not receive a warning message, only P2 will get one.
 
@@ -229,7 +227,7 @@ The objective of the fusion is to determine whether a communicating \ac{VRU} is 
 
 In contrast, in sub figure~\ref{fig:fusion} (b) the pedestrian is not visible. So, the Perception System will only detect other objects in the blue area. Again, by looking at the several tracks from the \ac{V2PCS}, you realize that they will not settle around any of the objects detected by the Perception System. Therefore, you can conclude that the Perception System has not detected the pedestrian and rely solely on the data of the \ac{V2PCS} (GPS position).
 \\\\
-The results from \cite{2016fusion} show that the combined system benefits from the advantages from both the \ac{V2PCS} and the Perception System. In \ac{LOS} conditions, the system can locate the pedestrian more precisely because of the very precise data from the Perception System. As the distance between the car and the pedestrian increases, the Perception becomes useless, and only the data from the \ac{V2PCS} can be used. The same holds for \ac{NLOS} conditions. Moreover, the combined has yet not been tested for situations with many communicating cars and pedestrians which will strain the system more. Nevertheless, the fusion approach is a very useful and promising technique for \ac{VRU} protection.
+The results from \cite{2016fusion} show that the combined system benefits from the advantages from both the \ac{V2PCS} and the Perception System. In \ac{LOS} conditions, the system can locate the pedestrian more precisely because of the very precise data from the Perception System. As the distance between the car and the pedestrian increases, the Perception becomes useless, and only the data from the \ac{V2PCS} can be used. The same holds for \ac{NLOS} conditions. Moreover, the combined system has yet not been tested for situations with many communicating cars and pedestrians which will strain the system more. Nevertheless, the fusion approach is a very useful and promising technique for \ac{VRU} protection.
 
 \section{Wireless Protection of Motorbikes}\label{sec:motorbikes}
 
@@ -273,8 +271,8 @@ The future work will show which way will lead to better results.
 \listoffigures
 \clearpage
 
-\TODO{bib wieder anzeigen}
-%\printbibliography
+%\TODO{bib wieder anzeigen}
+\printbibliography
 
 
 \end{document}
