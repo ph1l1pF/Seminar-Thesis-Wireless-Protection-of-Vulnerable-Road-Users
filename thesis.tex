@@ -52,7 +52,6 @@
 
 \maketitle
 
-\TODO{erkläruing unterschreiben}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -99,7 +98,7 @@ Within the last century the usage of motorized vehicles has grown rapidly. While
 \section{Structure of the Thesis}
 \label{sec:structure}
 
-The thesis is structured as follows. Chapter~\ref{chap:v2p} is the main part of the thesis and will show the different ways for protection of \acp{VRU} by using Wireless Networking. In chapters~\ref{sec:special device}, \ref{sec:smartphone}, \ref{sec:beacon}, we will look at different solution which rely solely on Wireless Networking. We will then see why such systems are often not satisfying, and in chapter \ref{sec:fusion} we will take a look at an approach which combines Wireless Networking and Sensor Perception in order to improve the performance and precision. In chapter~\ref{sec:motorbikes}, motorbikes will be discussed as a different class of \acp{VRU}.
+The thesis is structured as follows. Chapter~\ref{chap:v2p} is the main part of the thesis and will show the different ways for protection of \acp{VRU} by using Wireless Networking. In chapters~\ref{sec:special device}, \ref{sec:smartphone}, \ref{sec:beacon}, we will look at different solutions which rely solely on Wireless Networking. We will then see why such systems are often not satisfying, and in chapter \ref{sec:fusion} we will take a look at an approach which combines Wireless Networking and Sensor Perception in order to improve the performance and precision. In chapter~\ref{sec:motorbikes}, motorbikes will be discussed as a different class of \acp{VRU}.
 
 Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized and also we will see what future tasks are still left in this area to make it usable in the real world.
 
@@ -109,13 +108,13 @@ Finally, in chapter~\ref{chap:conclusion} all the approaches will be summarized 
 
 The basic idea behind \acp{V2PCS} is that a driving vehicle (most often a car) and a \ac{VRU} (most often a pedestrian) exchange messages over a wireless network in order tell each other their positions. By doing that, accidents between them can be prevented because both the car driver and the pedestrian can react to the received messages.
 
-There are several approaches to implements such a system and they will be discovered in this chapter.
+There are several approaches to implement such a system and they will be discovered in this chapter.
 
 \section{Special Device as Warning Unit}\label{sec:special device}
 
 First, we will look at such communication systems which use a special device for the \ac{VRU} in order to send his messages. In \cite{v2pprotection} and \cite{watchover} such systems have been proposed. As~\cite{watchover} is more about the details of the deployed devices (e.g. energy consumption, price, complexity), we will focus on~\cite{v2pprotection} since it is more related to Wireless Networking.
 
-The device from \cite{v2pprotection} can be seen in the bottom of figure~\ref{fig:device}. In the top of figure~\ref{fig:device} you can see the warning unit that will be installed in the car.
+The device for the pedestrian from \cite{v2pprotection} can be seen in the bottom of figure~\ref{fig:device}. In the top of figure~\ref{fig:device} you can see the warning unit that will be installed in the car.
 
 \begin{figure}[h]
 	\centering
@@ -124,11 +123,11 @@ The device from \cite{v2pprotection} can be seen in the bottom of figure~\ref{fi
 	\label{fig:device}%
 \end{figure}
 
-The task of the device for the pedestrian is to periodically send \enquote{Hello}-Messages including the pedestrian's position so that the warning unit in the car can receive those messages and detect a probably dangerous situation. Then the warning unit sets itself into a warning status (which can be seen in figure~\ref{fig:device}).
+The task of the device for the pedestrian is to periodically send \enquote{Hello}-Messages including the pedestrian's position so that the warning unit in the car can receive those messages and detect a probably dangerous situation. Then the warning unit for the car sets itself into a warning status (like in the top of figure~\ref{fig:device} with the blinking LEDs).
 
-It is very important that the car driver does not get too many warning messages because otherwise he would loose sensibility for the warning. Therefore, a key issue is to ensure that only warning are created if the distance between car and pedestrian decreases gradually.
+It is very important that the car driver does not get too many warning messages because otherwise he would loose sensibility for the warnings. Therefore, a key issue is to ensure that only warning are created if the distance between car and pedestrian decreases gradually.
 
-Figure~\ref{fig:chart1} shows the alerting probability on the y-axis and the distance between the person and the car on the x-axis. The alerting probability decreases as the distance increases, as expected. The red parts of the bars represent the amount of meaningful warnings, which are roughly half of all warnings, because in this test scenario only one pedestrian is present. That ratio is not satisfying, but this is only because of the low number of pedestrians.
+Figure~\ref{fig:chart1} shows the alerting probability on the vertical axis and the distance between the person and the car on the horizontal axis. The alerting probability decreases as the distance increases, as expected. The red parts of the bars represent the amount of meaningful warnings, which are roughly half of all warnings. By meaningful warnings we mean warnings that are only delivered to participants (pedestrians or cars) which could be really be involved in an accident. The low ratio of meaningful warnings is due to the fact that in this test scenario only one pedestrian is present. 
 
 In figure~\ref{fig:chart2} you see the same statistics, but for a scenario with 10 pedestrians. Here the ratio is almost 100\%, due to the higher number of pedestrians which makes it way more likely that a warning is meaningful, and such a scenario will be more likely in real world conditions, for example in cities.
 
@@ -151,17 +150,17 @@ In figure~\ref{fig:chart2} you see the same statistics, but for a scenario with 
 
 In \cite{v2pcomm}, another approach has been developed which is based on the same idea as \cite{v2pprotection}, but it is more detailed. Moreover, it has the great benefit that no additional device for the \ac{VRU} is needed because in this system a smart phone or tablet will be used as the warning device for the pedestrians.
 
-The approach is more detailed, because it formulates precise requirements that an implementation of a \ac{V2PCS} should have in order to be able to work in reality. The  requirements basically boil down to the following: One has to calculate the distance between the car and the pedestrian at which the warning messages are to be delivered. In section~\ref{sec:special device} we have already seen that this distance should not be too big, because otherwise too many meaningless warning would be received. But accordingly, the distance must not be too small, because the pedestrian and the car driver must have enough time to react to the messages.
+The approach is more detailed, because it formulates precise requirements that an implementation of a \ac{V2PCS} should have in order to be able to work in reality. The  requirements basically boil down to the following: One has to calculate the distance between the car and the pedestrian at which the warning messages are to be delivered. In section~\ref{sec:special device} we have already seen that this distance should not be too big, because otherwise too many meaningless warnings would be received. But accordingly, the distance must not be too small, because the pedestrian and the car driver must have enough time to react to the messages.
 
-To calculate this distance, the authors of \cite{v2pcomm} have taken into consideration many parameters, e.g. the velocity of the car, the reaction time of the pedestrian, the expected positioning error of GPS (which is approximately 10m), the expected packet transmission time of Wi-Fi and so on. As an example, we take a look at equation~\ref{equi:minDistance} where the lower bound $d_{min}$ of the distance is written down.
+To calculate this distance, the authors of \cite{v2pcomm} have taken into consideration many parameters, e.g. the velocity of the car, the expected reaction time of the pedestrian, the expected positioning error of GPS (which is approximately 10m), the expected packet transmission time of Wi-Fi and so on. As an example, we take a look at equation~\ref{equi:minDistance} where the lower bound $d_{min}$ of the distance is written down.
 \begin{align}
 d_{min}=v \times (t_p+t_r+t_{tx})+gnss_{err_{car}}+gnss_{err_{ped}}\label{equi:minDistance}
 \end{align}
-Here $v$ is the car's velocity. Moreover, $t_p$ is the time for Perception of the pedestrian, $t_r$ is the reaction time of the pedestrian, and $t_{tx}$ is the packet transmission delay. $gnss_{err_{car}}$ and $gnss_{err_{ped}}$ are the positioning errors of the car and the pedestrian, respectively. Of course, when $v$ increases, $d_{min}$ has to increase as well, therefore $v$ is multiplied by the sum of $t_p, t_r$ and $t_{tx}$.
+Here $v$ is the car's velocity. Moreover, $t_p$ is the time for perception of the pedestrian, $t_r$ is the reaction time of the pedestrian, and $t_{tx}$ is the packet transmission delay. $gnss_{err_{car}}$ and $gnss_{err_{ped}}$ are the positioning errors of the car and the pedestrian, respectively. Of course, when $v$ increases, $d_{min}$ has to increase as well, therefore $v$ is multiplied by the sum of $t_p, t_r$ and $t_{tx}$.
 
-For simplification, we will not look in every detail of this calculation as it is very sophisticated. But in principle it is crucial to compute a lower and upper bound for the distance at which the warning messages should be sent. Because you can then check whether your system always fulfills these bounds which the system from \cite{v2pcomm} does.
+For simplification, we will not look in every detail of this calculation as it is elaborate. But in principle it is crucial to compute a lower and upper bound for the distance at which the warning messages should be sent. Because you can then check whether your system always fulfills these bounds which the system from \cite{v2pcomm} does.
 
-Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively. \cite{v2pcomm}
+Finally, the distance calculated is 39.5, 52.3, and 72.0 m, when the velocity of the car is 30, 50, 80 km/h, respectively (for typical values of the other parameters). \cite{v2pcomm}
 \\\\
 Another important concept in this context of when to send warning messages is the so called \ac{GDA}. You can understand the concept by considering figure~\ref{fig:gda}. In (a) a car is approaching two pedestrians, P1 and P2. As the car is yet far away from P1 and P2 it is possible that both P1 and P2 could be involved in an accident with the car, therefore both of them are in the \ac{GDA} (green area).
 
@@ -183,13 +182,13 @@ Typically, when two devices want to communicate with each other over WiFi, they 
 
 In \cite{beacon} the SSID field is replaced by a so called WiFi Honk Information Packet, which includes information about the moving car, namely the latitude, longitude, speed, and direction. \acp{VRU} or other cars then receive this information and compute the likelihood of an accident.
 
-Figure~\ref{fig:beacon} shows the results of~\cite{beacon} compared to WiFi without Beacon Stuffing. Sub figure (a) shows that pedestrians have a little more time to react, but obviously if the velocity of the car comes close to 100 mph there is almost no time to react. Sub figure (b) shows the \ac{POC} after receiving an alert, depending on the car's speed, on which Beacon Stuffing has a decisive impact. \ac{POC} is defined in equation~\ref{equ:poc}.
+Figure~\ref{fig:beacon} shows the results of~\cite{beacon} compared to WiFi without Beacon Stuffing. Sub figure (a) shows that pedestrians have a little more time to react, but obviously if the velocity of the car comes close to 100 mph there is almost no time to react. This fact cannot be changed by Beacon Stuffing. Sub figure (b) shows the \ac{POC} after receiving an alert, depending on the car's speed, on which Beacon Stuffing has a decisive impact. \ac{POC} is defined by equation~\ref{equ:poc}.
 
 \begin{align}\label{equ:poc}
 \text{POC}=\dfrac{\text{Required Time To Stop}}{\text{Time to Recognize Alert}+\text{Time Available to Stop }}
 \end{align}
 
-POC is much smaller when using Beacon Stuffing, because \enquote{Time to Recognize Alert} and \enquote{Time Available to Stop} become greater. Due to the higher \ac{POC}, warning messages can be sent more aggressively in the WiFi Honk Mode.
+POC is much smaller when using Beacon Stuffing, because \enquote{Time to Recognize Alert} and \enquote{Time Available to Stop} become greater. 
 
 The Beacon Stuffing approach is a useful technique which can be added to \acp{V2PCS} to enhance the packet transmission time.
 
@@ -202,13 +201,13 @@ The Beacon Stuffing approach is a useful technique which can be added to \acp{V2
 
 \section{Fusion of Perception and V2P Communication}\label{sec:fusion}
 
-Apart from the discipline of Wireless Networking there is another approach for detecting \acp{VRU}. Nowadays, cars are equipped with sensors which are supposed to detect objects in the environment. In \cite{survey} the different types of sensors are presented. First, cameras are used as sensors, when pictures are taken, the interesting information has to extracted from the picture. In~\cite{2010perception}, the authors explain how the extraction works. In the first step, the so called noise has to be removed from the picture, in particular the background. In the second step, the different objects in the picture have to be classified, e.g. a tree is not as important as a pedestrian. This process is done by Machine Learning Algorithms and it is difficult due to the fact that humans look quite differently, as the can have different heights, can carry around other objects, or ride on bicycles. 
+Apart from the discipline of Wireless Networking there is another approach for detecting \acp{VRU}. Nowadays, cars are equipped with sensors which are supposed to detect objects in the environment. In \cite{survey} the different types of sensors are presented. First, cameras are used as sensors, when pictures are taken, the interesting information has to extracted from the picture. In~\cite{2010perception}, the authors explain how the extraction works. In the first step, the so called noise has to be removed from the picture, in particular the background. In the second step, the different objects in the picture have to be classified, e.g. a tree is not as important as a pedestrian. This process is done by Machine Learning Algorithms and it is difficult due to the fact that humans look quite differently, as they can have different heights, can carry around other objects, or ride on bicycles etc.
 
 Because of the complexity of the classification step, other types of sensors are presented in~\cite{survey}. Thermal sensors can be used which detect humans by their body heat. Therefore, they can locate humans very precisely and a classification step is not necessary. But in hot day conditions, they are not reliable, because the heat difference becomes smaller.
 
 Nowadays, lasers are used most often as they are very precise and work in all weather conditions. Some years ago lasers were very expensive, but after the development in the last years they have become affordable.
 
-The biggest disadvantage of using sensors for pedestrian detection is that they are not able to work when the pedestrian is occluded by an obstacle. So, it is not satisfying to only use Sensor Perception for protecting \acp{VRU}. But in fact, Sensor Perception has also some advantages in comparison to \acp{V2PCS}. 
+The biggest disadvantage of using sensors for pedestrian detection is that they are not able to work when the pedestrian is occluded by an obstacle. So, it is not satisfying to only use Sensor Perception for protecting \acp{VRU}. But Sensor Perception has also some advantages in comparison to \acp{V2PCS}. 
 
 That is demonstrated by figure~\ref{fig:fusion} where in sub figure~\ref{fig:fusion} (a) the Perception System determines the position of the pedestrian more precisely. The blue triangle is the position transmitted by WiFi Communication (by using GPS), and the red circle is the position calculated by the Perception System. The Perception System works better here, because this is a \ac{LOS} situation which means that the pedestrian is not occluded by any obstacle. The Perception System is capable of determining positions very precisely whereas GPS can always have a small positioning error, as mentioned earlier.
 
@@ -231,7 +230,7 @@ The results from \cite{2016fusion} show that the combined system benefits from t
 
 \section{Wireless Protection of Motorbikes}\label{sec:motorbikes}
 
-We will now look into a different topic, which is protecting drivers of motorbikes by using Wireless Networking. Yet we have focused mainly on pedestrians as \acp{VRU}, but motorbike drivers are \acp{VRU} as well, and due to the high popularity of motorbikes this area is also very important. 
+We will now look into a different topic, which is protecting drivers of motorbikes by using Wireless Networking. Yet we have focused mainly on pedestrians as \acp{VRU}, but motorbike drivers are \acp{VRU} as well, and due to the high popularity of motorbikes this area is also very important. The protection of motorbikes is more related to Car-To-Car-Communication than it is to protection of pedestrians, and is therefore treated as a different topic in this thesis.
 
 There are already approaches for so called \acp{ITS}, for example in~\cite{its}. There, Wireless Sensor Networks are used in order to exchange information between cars.  Those systems are also designed to enhance efficiency on the road, but of course also in order to provide more safety. Therefore, the cars will exchange messages including the typical parameters like speed, direction etc.
 
@@ -243,7 +242,7 @@ The system works as follows. It receives the several messages from other vehicle
 
 Of course, the systems also broadcasts its data to other vehicles over WiFi in order to inform them.
 
-Apart from that, the system is also capable of running in cars, and in that case informs the driver about nearby motorbikes. In contrast, when running in a motorbike, the system focuses on warning the driver about nearby cars as they are a bigger threat for the motorbike driver.
+Apart from that, the system is also capable of running in cars, and in that case informs the driver about other cars and also about nearby motorbikes because the own car is considered a potential threat for those other motorbikes. In contrast, when running in a motorbike, the system focuses on warning the bike driver about nearby cars as they are a bigger threat for the motorbike driver.
 
 A future task will be to make the system runnable in 4G networks as well in order to improve the performance.
 
@@ -253,11 +252,11 @@ A future task will be to make the system runnable in 4G networks as well in orde
 
 This thesis gave an overview of the current state of research in the area of protecting \acp{VRU} by mainly using Wireless Networking. That topic is of high interest because many accidents happen between vehicles and \acp{VRU}, so a large number of accidents could be prevented.
 
-This protection basically works by exchanging messages between \acp{VRU} and cars over a wireless channel and then calculating the likeliness of an accident between the two. We have also seen that a \ac{V2PCS} as stand alone are not sufficient, mostly due to the imprecision of GPS. Therefore, sensor Perception will be used in addition, as those sensors are generally more precise than GPS. The fusion of those two types of \ac{VRU}-detection can then benefit from the advantages of both WiFi and Perception, whereby the disadvantages (imprecision of GPS and low range of Perception) can be eliminated.
+This protection basically works by exchanging messages between \acp{VRU} and cars over a wireless channel and then calculating the likeliness of an accident between the two. We have also seen that a \ac{V2PCS} as stand alone are not sufficient, mostly due to the imprecision of GPS. Therefore, Sensor Perception will be used in addition, as those sensors are generally more precise than GPS. The fusion of those two types of \ac{VRU}-detection can then benefit from the advantages of both WiFi and Perception, whereby the disadvantages (imprecision of GPS and low range of Perception) can be eliminated.
 
 Apart from that, we have also considered motorbikes as another class of \acp{VRU}. The main goal is to integrate motorbikes in \ac{ITS}-systems that are already under development, but mostly for cars. This is challenging because of the special requirements that motorbikes will yield (e.g. less energy consumption, more compact human interface etc.).
 
-In general, you can state that there two different approaches for future research, either focusing on the fusion of V2P Communication and Perception, or concentrating on a technology more precise than GPS and then only using V2P Communication. Those technologies are currently under development, like the one in~\cite{doppler}, where GPS is extended and the accuracy is improved by up to 48\%. 
+In general, you can state that there are two different approaches for future research, either focusing on the fusion of V2P Communication and Perception, or concentrating on a technology more precise than GPS and then only using V2P Communication. Those technologies are currently under development, like the one in~\cite{doppler}, where GPS is extended and the accuracy is improved by up to 48\%. 
 
 The future work will show which way will lead to better results.
 
